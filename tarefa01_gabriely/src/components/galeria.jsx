@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./card";
+import Detalhes from "./detalhes";
 import "./galeria.css";
 
+export default function Galeria({ personagens }) {
+  const [temaDark, setTemaDark] = useState("light");
+  const [personagemSelecionado, setPersonagemSelecionado] = useState(null);
 
-export default function Galeria({ personagens, onSelectPersonagem }) {
+
+  const handleSelectPersonagem = (personagem) => {
+    setPersonagemSelecionado(personagem);
+  };
+
   return (
     <div className="galeria">
       {personagens.map((char) => (
         <Card
-          key={p.id}
-          nome={p.nome}
-          imagem={p.imagem}
-          onClick={() => onSelectPersonagem(char)}
+          key={char.id}
+          nome={char.nome}
+          imagem={char.imagem}
+          onClick={() => handleSelectPersonagem(p)}
         />
       ))}
+
+      <Detalhes personagem={personagemSelecionado} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Galeria from "./galeria";
+import Galeria from "./components/galeria.jsx";
 import Detalhes from "./detalhes";
+import './App.css';
 
 import p1 from "./assets/personagem1.jpg";
 import p2 from "./assets/personagem2.jpg";
@@ -49,11 +50,15 @@ const personagens = [
 ];
 
 export default function App() {
-  const [temaDark, setTemaDark] = useState(false);
+  const [temaDark, setTemaDark] = useState('light');
   const [personagemSelecionado, setPersonagemSelecionado] = useState(null);
 
   function toggleTema() {
     setTemaDark(!temaDark);
+  }
+
+  function handleSelectPersonagem(personagem) {
+    setPersonagemSelecionado(personagem);
   }
 
   return (
@@ -64,9 +69,8 @@ export default function App() {
         <h1>Galeria de Personagens</h1>
       </header>
 
-      <Galeria personagens={personagens} onSelectPersonagem={setPersonagemSelecionado} />
+      <Galeria personagens={personagens} handleSelectPersonagem={handleSelectPersonagem} />
       <Detalhes personagem={personagemSelecionado} />
     </div>
   );
 }
-
