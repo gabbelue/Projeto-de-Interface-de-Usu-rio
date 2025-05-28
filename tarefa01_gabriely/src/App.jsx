@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Galeria from "./components/galeria.jsx";
-import Detalhes from "./detalhes";
+import Detalhes from "./components/detalhes.jsx";
 import './App.css';
 
 import p1 from "./assets/personagem1.jpg";
