@@ -1,6 +1,6 @@
 export const nomes = ["João", "Maria", "José", "Joana"];
 
-export const times = ["Flamengo", "Palmeiras", "Bahia","Santos"];
+export const times = ["Flamengo", "Palmeiras", "Bahia","Santos", "Flamengo", "flamengo"];
 
 export const obj = [
     {id: 0,
